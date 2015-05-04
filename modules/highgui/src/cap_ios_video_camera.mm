@@ -279,6 +279,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void)createVideoDataOutput;
 {
+    NSLog(@"[Camera] createVideoDataOutput");
     // Make a video data output
     self.videoDataOutput = [AVCaptureVideoDataOutput new];
 
@@ -379,6 +380,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void)createCaptureOutput;
 {
+    NSLog(@"[Camera]: createCaptureOutput ");
     [self createVideoDataOutput];
     if (self.recordVideo == YES) {
         [self createVideoFileOutput];
@@ -561,6 +563,9 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
                                                   withPresentationTime:lastSampleTime] ) {
                     NSLog(@"Video Writing Error");
                 }
+
+                if (pixelBuffer != nullptr)
+                    CVPixelBufferRelease(pixelBuffer);
             }
 
         }

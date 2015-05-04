@@ -1120,6 +1120,8 @@ CvVideoWriter_AVFoundation::CvVideoWriter_AVFoundation(const char* filename, int
 
     NSAutoreleasePool* localpool = [[NSAutoreleasePool alloc] init];
 
+    cerr << "CvVideoWriter_AVFoundation constructor " << endl;
+
 
     frameCount = 0;
     movieFPS = fps;

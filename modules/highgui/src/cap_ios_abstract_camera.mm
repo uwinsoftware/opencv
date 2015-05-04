@@ -265,6 +265,8 @@
 - (void)createCaptureSession;
 {
     // set a av capture session preset
+
+    NSLog(@"createCaptureSession...");
     self.captureSession = [[AVCaptureSession alloc] init];
     if ([self.captureSession canSetSessionPreset:self.defaultAVCaptureSessionPreset]) {
         [self.captureSession setSessionPreset:self.defaultAVCaptureSessionPreset];
@@ -278,6 +280,8 @@
 - (void)createCaptureDevice;
 {
     // setup the device
+
+    NSLog(@"[Camera] createCaptureDevice...");
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     [self setDesiredCameraPosition:self.defaultAVCaptureDevicePosition];
     NSLog(@"[Camera] device connected? %@", device.connected ? @"YES" : @"NO");
@@ -356,6 +360,8 @@
         return;
     }
 
+    NSLog(@"startCaptureSession ...");
+
     if (self.captureSessionLoaded == NO) {
         [self createCaptureSession];
         [self createCaptureDevice];
@@ -363,8 +369,10 @@
 
         // setup preview layer
         if (self.useAVCaptureVideoPreviewLayer) {
+            NSLog(@"createVideoPreviewLayer...");
             [self createVideoPreviewLayer];
         } else {
+            NSLog(@"createCustomVideoPreview...");
             [self createCustomVideoPreview];
         }
 
@@ -395,6 +403,7 @@
 
 - (void)updateSize;
 {
+    NSLog(@"UpdateSize ...");
     if ([self.defaultAVCaptureSessionPreset isEqualToString:AVCaptureSessionPresetPhoto]) {
         //TODO: find the correct resolution
         self.imageWidth = 640;

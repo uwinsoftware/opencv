@@ -46,6 +46,9 @@
 #pragma warning(disable: 4748)
 #endif
 
+#include <iostream>
+using namespace std;
+
 namespace cv
 {
 
@@ -422,6 +425,9 @@ CV_IMPL CvVideoWriter* cvCreateVideoWriter( const char* filename, int fourcc,
                                             double fps, CvSize frameSize, int is_color )
 {
     //CV_FUNCNAME( "cvCreateVideoWriter" );
+
+    cerr << "cvCreateVideoWriter " << endl;
+    cout << "cvCreateVideoWriter " << endl;
 
     CvVideoWriter *result = 0;
 
