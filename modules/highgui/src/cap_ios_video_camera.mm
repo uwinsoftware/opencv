@@ -32,7 +32,9 @@
 #import "opencv2/highgui/cap_ios.h"
 #include "precomp.hpp"
 #import <AssetsLibrary/AssetsLibrary.h>
+#include<iostream>
 
+using namespace std;
 
 static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
@@ -99,6 +101,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 - (void)start;
 {
     [super start];
+
+    cerr << "Started video recording from OpenCV " << endl;
 
     if (self.recordVideo == YES) {
         NSError* error = nil;

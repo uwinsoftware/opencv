@@ -203,6 +203,7 @@
     }
 
     [self.captureSession stopRunning];
+    [self.captureSession release];
     self.captureSession = nil;
     self.captureVideoPreviewLayer = nil;
     self.videoCaptureConnection = nil;

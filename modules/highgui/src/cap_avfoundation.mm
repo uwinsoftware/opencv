@@ -1261,6 +1261,7 @@ CvVideoWriter_AVFoundation::~CvVideoWriter_AVFoundation() {
 }
 
 bool CvVideoWriter_AVFoundation::writeFrame(const IplImage* iplimage) {
+#if 0
     NSAutoreleasePool* localpool = [[NSAutoreleasePool alloc] init];
 
     // writer status check
@@ -1331,4 +1332,8 @@ bool CvVideoWriter_AVFoundation::writeFrame(const IplImage* iplimage) {
         return false;
     }
 
+#else
+    cerr << "Writing Frame, skipped " << endl;
+    return true;
+#endif
 }
